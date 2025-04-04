@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shubham & Rajosmita ❤️</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='heart-icon.png') }}">
+</head>
+<body>
+    <h1 id="title">Shubham & Rajosmita ❤️</h1>
+
+    <form id="search-form">
+        <input type="text" id="search-input" placeholder="Search..." autocomplete="off">
+        <div id="search-results"></div>
+    </form>
+
+    <div id="hearts-container"></div> <!-- Floating hearts -->
+
+    <audio id="bg-music" loop>
+        <source src="{{ url_for('static', filename='music.mp3') }}" type="audio/mpeg">
+    </audio>
+
+    <button id="music-btn" onclick="toggleMusic()">🎵</button>
+</body>
+</html>
