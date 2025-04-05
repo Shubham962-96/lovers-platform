@@ -130,8 +130,9 @@ body {
     body {
         background-size: cover;
         background-position: center center;
-        background-attachment: scroll;
+        background-attachment: scroll; /* optional: helps on some mobile browsers */
     }
+}
 
     #title {
         font-size: 60px;
