@@ -4,40 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shubham & Rajosmita ❤️</title>
+
+    <!-- Styles & Scripts -->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='heart-icon.png') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
 </head>
 <body>
+    <!-- Title -->
     <h1 id="title">Shubham & Rajosmita ❤️</h1>
 
-    <form id="search-form">
+    <!-- Search Form -->
+    <form id="search-form" onsubmit="return false;">
         <input type="text" id="search-input" placeholder="Search..." autocomplete="off">
         <div id="search-results"></div>
     </form>
 
+    <!-- Photo Carousel -->
     <div class="carousel-container">
         <div class="carousel">
-            <img src="{{ url_for('static', filename='images/her1.jpg') }}" class="carousel-image" />
-            <img src="{{ url_for('static', filename='images/her2.jpg') }}" class="carousel-image" />
-            <img src="{{ url_for('static', filename='images/her3.jpg') }}" class="carousel-image" />
-            <img src="{{ url_for('static', filename='images/her4.jpg') }}" class="carousel-image" />
-            <img src="{{ url_for('static', filename='images/her5.jpg') }}" class="carousel-image" />
-            <img src="{{ url_for('static', filename='images/her6.jpg') }}" class="carousel-image" />
-            <img src="{{ url_for('static', filename='images/her7.jpg') }}" class="carousel-image" />
-            <img src="{{ url_for('static', filename='images/her8.jpg') }}" class="carousel-image" />
-            <img src="{{ url_for('static', filename='images/her9.jpg') }}" class="carousel-image" />
-            <img src="{{ url_for('static', filename='images/her10.jpg') }}" class="carousel-image" />
+            {% for i in range(1, 11) %}
+                <img src="{{ url_for('static', filename='images/her' ~ i ~ '.jpg') }}" class="carousel-image" />
+            {% endfor %}
         </div>
     </div>
 
-    <div id="hearts-container"></div> <!-- Floating hearts -->
+    <!-- Floating Hearts -->
+    <div id="hearts-container"></div>
 
+    <!-- Background Music -->
     <audio id="bg-music" loop>
         <source src="{{ url_for('static', filename='music.mp3') }}" type="audio/mpeg">
     </audio>
 
-    <button id="music-btn" onclick="toggleMusic()">🎵</button>
-<button id="surprise-btn" onclick="openSurprise()">🎁 Surprise</button>
+    <!-- Buttons -->
+    <button id="music-btn">🎵</button>
+    <button id="surprise-btn">🎁 Surprise</button>
 </body>
 </html>
