@@ -1,139 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Shubham & Rajosmita ❤️</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/style.css">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-image: url('/static/background.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            color: white;
-            text-align: center;
-            overflow-x: hidden;
-        }
+  <meta charset="UTF-8" />
+  <title>Shubham & Rajosmita ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/static/style.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url("/static/background.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      color: white;
+      text-align: center;
+      overflow-x: hidden;
+      animation: fadeIn 1.5s ease-in;
+    }
 
-        #hearts-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
 
-        .heart {
-            position: absolute;
-            font-size: 24px;
-            animation: float 5s linear infinite;
-        }
+    #hearts-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
 
-        @keyframes float {
-            0% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh);
-                opacity: 0;
-            }
-        }
+    .heart {
+      position: absolute;
+      font-size: 24px;
+      animation: float 5s linear infinite;
+      color: red;
+    }
 
-        #title {
-            margin-top: 50px;
-            font-size: 48px;
-            text-shadow: 2px 2px 6px hotpink;
-        }
+    @keyframes float {
+      0% { transform: translateY(100vh); opacity: 1; }
+      100% { transform: translateY(-10vh); opacity: 0; }
+    }
 
-        #search-form {
-            margin-top: 30px;
-            position: relative;
-            display: flex;
-            justify-content: center;
-        }
+    #title {
+      margin-top: 50px;
+      font-size: 60px;
+      text-shadow: 2px 2px 10px hotpink;
+    }
 
-        #search-input {
-            width: 300px;
-            padding: 12px 20px;
-            font-size: 18px;
-            border-radius: 25px;
-            border: none;
-            outline: none;
-            box-shadow: 0 0 10px pink;
-        }
+    #search-form {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-        #search-results {
-            position: absolute;
-            top: 50px;
-            background: rgba(255, 255, 255, 0.95);
-            color: #ff1493;
-            border-radius: 10px;
-            box-shadow: 0 0 10px hotpink;
-            width: 300px;
-            z-index: 10;
-            display: none;
-            font-weight: bold;
-        }
+    #search-input {
+      width: 80%;
+      max-width: 400px;
+      padding: 15px;
+      font-size: 22px;
+      border-radius: 25px;
+      border: 2px solid white;
+      outline: none;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.3);
+      color: white;
+      margin-bottom: 10px;
+    }
 
-        #search-results div:hover {
-            background-color: #ffe4ec;
-        }
+    #search-results {
+      width: 80%;
+      max-width: 400px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      display: none;
+      text-align: left;
+      max-height: 200px;
+      overflow-y: auto;
+      font-size: 18px;
+      color: black;
+      margin-top: 5px;
+      z-index: 5;
+    }
 
-        #music-btn, #surprise-btn {
-            margin: 20px 10px;
-            padding: 12px 24px;
-            font-size: 20px;
-            border-radius: 50%;
-            border: none;
-            background-color: hotpink;
-            color: white;
-            cursor: pointer;
-            box-shadow: 0 0 10px rgba(255, 20, 147, 0.6);
-        }
+    #search-results div:hover {
+      background-color: #ffe4ec;
+    }
 
-        #music-btn:hover, #surprise-btn:hover {
-            background-color: #ff69b4;
-        }
-    </style>
+    #button-container {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 20px;
+      z-index: 1000;
+    }
+
+    #music-btn,
+    #surprise-btn {
+      width: 70px;
+      height: 70px;
+      border: none;
+      border-radius: 50%;
+      font-size: 30px;
+      cursor: pointer;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    #music-btn {
+      background-color: #ff69b4;
+    }
+
+    #music-btn:hover {
+      background-color: #ff85c1;
+      transform: scale(1.1);
+    }
+
+    #surprise-btn {
+      background-color: #ff1493;
+    }
+
+    #surprise-btn:hover {
+      background-color: #ff5ca2;
+      transform: scale(1.1);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      #search-input {
+        border: 2px solid pink;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+      }
+
+      #search-results {
+        background: rgba(255, 255, 255, 0.95);
+      }
+    }
+
+    @media (max-width: 768px) {
+      #title {
+        font-size: 40px;
+      }
+
+      #music-btn,
+      #surprise-btn {
+        font-size: 20px;
+        width: 60px;
+        height: 60px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div id="hearts-container"></div>
+  <div id="hearts-container"></div>
 
-    <h1 id="title">Shubham & Rajosmita ❤️</h1>
+  <h1 id="title">Shubham & Rajosmita ❤️</h1>
 
-    <form id="search-form" onsubmit="return false;">
-        <input type="text" id="search-input" placeholder="Search Love..." autocomplete="off" />
-        <div id="search-results"></div>
-    </form>
+  <form id="search-form" onsubmit="return false;">
+    <input type="text" id="search-input" placeholder="Search Love..." autocomplete="off" />
+    <div id="search-results"></div>
+  </form>
 
+  <!-- 🎵 & 🎁 Buttons Centered -->
+  <div id="button-container">
     <button id="music-btn">🎵</button>
     <button id="surprise-btn">🎁</button>
+  </div>
 
-    <script>
-        const popupImages = [
-            "/static/images/her1.jpg",
-            "/static/images/her2.jpg",
-            "/static/images/her3.jpg",
-            "/static/images/her4.jpg",
-            "/static/images/her5.jpg",
-            "/static/images/her6.jpg",
-            "/static/images/her7.jpg",
-            "/static/images/her8.jpg",
-            "/static/images/her9.jpg",
-            "/static/images/her10.jpg"
-        ];
-    </script>
+  <!-- Your Scripts -->
+  <script>
+    const popupImages = [
+      "/static/images/her1.jpg",
+      "/static/images/her2.jpg",
+      "/static/images/her3.jpg",
+      "/static/images/her4.jpg",
+      "/static/images/her5.jpg",
+      "/static/images/her6.jpg",
+      "/static/images/her7.jpg",
+      "/static/images/her8.jpg",
+      "/static/images/her9.jpg",
+      "/static/images/her10.jpg"
+    ];
+  </script>
 
-    <script src="/static/script.js"></script>
-
-    <!-- Force scroll to test background height on mobile -->
-    <div style="height: 2000px;"></div>
+  <script src="/static/script.js"></script>
 </body>
 </html>
