@@ -97,3 +97,22 @@ body {
         background-color: #ff6b81;
     }
 }
+.carousel-container {
+    max-width: 90%;
+    margin: 50px auto;
+    overflow-x: scroll;
+    white-space: nowrap;
+}
+
+.carousel-image {
+    width: 300px;
+    margin: 10px;
+    border-radius: 15px;
+    display: inline-block;
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.8);
+    transition: transform 0.3s;
+}
+
+.carousel-image:hover {
+    transform: scale(1.05);
+}
