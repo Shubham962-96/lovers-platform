@@ -72,6 +72,10 @@ body {
     transition: transform 0.3s;
 }
 
+.carousel-image:hover {
+    transform: scale(1.05);
+}
+
 /* Floating Hearts */
 #hearts-container {
     position: fixed;
