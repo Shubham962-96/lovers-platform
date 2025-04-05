@@ -3,15 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <title>Shubham & Rajosmita ❤️</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/style.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('/static/background.jpg'); /* Your anime background */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            color: white;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        #hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 24px;
+            animation: float 5s linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh);
+                opacity: 0;
+            }
+        }
+
+        #title {
+            margin-top: 50px;
+            font-size: 48px;
+            text-shadow: 2px 2px 6px hotpink;
+        }
+
+        #search-form {
+            margin-top: 30px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        #search-input {
+            width: 300px;
+            padding: 12px 20px;
+            font-size: 18px;
+            border-radius: 25px;
+            border: none;
+            outline: none;
+            box-shadow: 0 0 10px pink;
+        }
+
+        #search-results {
+            position: absolute;
+            top: 50px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #ff1493;
+            border-radius: 10px;
+            box-shadow: 0 0 10px hotpink;
+            width: 300px;
+            z-index: 10;
+            display: none;
+            font-weight: bold;
+        }
+
+        #search-results div:hover {
+            background-color: #ffe4ec;
+        }
+
+        #music-btn, #surprise-btn {
+            margin: 20px 10px;
+            padding: 12px 24px;
+            font-size: 20px;
+            border-radius: 50%;
+            border: none;
+            background-color: hotpink;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(255, 20, 147, 0.6);
+        }
+
+        #music-btn:hover, #surprise-btn:hover {
+            background-color: #ff69b4;
+        }
+    </style>
 </head>
 <body>
     <div id="hearts-container"></div>
 
     <h1 id="title">Shubham & Rajosmita ❤️</h1>
 
-    <form id="search-form">
-        <input type="text" id="search-input" placeholder="Search Love..." />
+    <form id="search-form" onsubmit="return false;">
+        <input type="text" id="search-input" placeholder="Search Love..." autocomplete="off" />
         <div id="search-results"></div>
     </form>
 
