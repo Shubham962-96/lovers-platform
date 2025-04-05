@@ -30,10 +30,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Surprise Button
     const surpriseBtn = document.getElementById('surprise-btn');
     if (surpriseBtn) {
         surpriseBtn.addEventListener('click', () => {
+            const surpriseSound = document.getElementById("surprise-sound");
+            if (surpriseSound) {
+                surpriseSound.currentTime = 0;
+                surpriseSound.play();
+            }
+
             const popup = window.open('', '_blank', 'width=800,height=700');
+            const images = [
+                "/static/images/her1.jpg",
+                "/static/images/her2.jpg",
+                "/static/images/her3.jpg",
+                "/static/images/her4.jpg",
+                "/static/images/her5.jpg",
+                "/static/images/her6.jpg",
+                "/static/images/her7.jpg",
+                "/static/images/her8.jpg",
+                "/static/images/her9.jpg",
+                "/static/images/her10.jpg"
+            ];
+
             popup.document.write(`
                 <!DOCTYPE html>
                 <html lang="en">
@@ -87,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <img id="popup-img" src="" alt="Surprise Image" />
                     <button onclick="nextImage()">Click Next ⇢ 💖💖</button>
                     <script>
-                        const images = ${JSON.stringify(popupImages)};
+                        const images = ${JSON.stringify(images)};
                         let current = 0;
                         const img = document.getElementById("popup-img");
                         function nextImage() {
@@ -110,6 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Search Bar Logic
     const searchInput = document.getElementById('search-input');
     const resultsBox = document.getElementById('search-results');
     const loveTopics = [
