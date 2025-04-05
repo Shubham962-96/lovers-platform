@@ -1,21 +1,19 @@
-/* Make sure HTML and body take full height */
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
+✅ Updated CSS Code (fully ready to paste into your /static/style.css):
+css
+Copy
+Edit
 body {
     background-image: url("/static/background.jpg");
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: center top;
     background-attachment: fixed;
     background-size: cover;
+    margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
     color: white;
     text-align: center;
     overflow-x: hidden;
-    min-height: 100vh; /* Ensures body is always tall enough */
     animation: fadeIn 1.5s ease-in;
 }
 
@@ -135,8 +133,15 @@ body {
     transform: scale(1.1);
 }
 
-/* Responsive design for mobile devices */
+/* ✅ Mobile fix */
 @media (max-width: 768px) {
+    body {
+        background-size: contain;
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+    }
+
     #title {
         font-size: 60px;
     }
@@ -152,17 +157,9 @@ body {
         width: 60px;
         height: 60px;
     }
-
-    /* Adjust background to still cover screen */
-    body {
-        background-size: cover;
-        background-position: center center;
-        background-attachment: scroll; /* prevents zooming lag on mobile */
-        min-height: 100vh;
-    }
 }
 
-/* Optional: tweaks for dark mode */
+/* Optional: dark mode styling */
 @media (prefers-color-scheme: dark) {
     #search-input {
         border: 2px solid pink;
