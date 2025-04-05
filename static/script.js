@@ -6,16 +6,14 @@ function createHeart() {
     heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
     heart.innerText = '❤️';
     document.getElementById('hearts-container').appendChild(heart);
-
     setTimeout(() => heart.remove(), 5000);
 }
 setInterval(createHeart, 300);
 
-// Background music control
+// Background music
 let musicPlaying = false;
 const music = new Audio('/static/love-song.mp3');
 music.loop = true;
-
 document.getElementById('music-btn').addEventListener('click', () => {
     if (musicPlaying) {
         music.pause();
@@ -27,24 +25,9 @@ document.getElementById('music-btn').addEventListener('click', () => {
     musicPlaying = !musicPlaying;
 });
 
-// Surprise Image Popup Viewer
+// Surprise popup viewer
 document.getElementById('surprise-btn').addEventListener('click', () => {
-    const images = [
-        '/static/images/her1.jpg',
-        '/static/images/her2.jpg',
-        '/static/images/her3.jpg',
-        '/static/images/her4.jpg',
-        '/static/images/her5.jpg',
-        '/static/images/her6.jpg',
-        '/static/images/her7.jpg',
-        '/static/images/her8.jpg',
-        '/static/images/her9.jpg',
-        '/static/images/her10.jpg'
-    ];
-
-    let current = 0;
     const popup = window.open('', '_blank', 'width=600,height=800');
-
     popup.document.write(`
         <!DOCTYPE html>
         <html>
@@ -83,7 +66,7 @@ document.getElementById('surprise-btn').addEventListener('click', () => {
             <img id="popup-img" src="" alt="Surprise Image" />
             <button onclick="nextImage()">Next 💖</button>
             <script>
-                const images = ${JSON.stringify(images)};
+                const images = ${JSON.stringify(popupImages)};
                 let current = 0;
                 const img = document.getElementById("popup-img");
                 function nextImage() {
@@ -91,8 +74,12 @@ document.getElementById('surprise-btn').addEventListener('click', () => {
                         window.close();
                         return;
                     }
+                    img.onload = () => current++;
+                    img.onerror = () => {
+                        alert("Could not load image.");
+                        window.close();
+                    };
                     img.src = images[current];
-                    current++;
                 }
                 nextImage();
             </script>
