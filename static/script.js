@@ -30,16 +30,16 @@ document.getElementById('music-btn').addEventListener('click', () => {
 // Surprise Image Popup Viewer
 document.getElementById('surprise-btn').addEventListener('click', () => {
     const images = [
-        '/static/gf1.jpg',
-        '/static/gf2.jpg',
-        '/static/gf3.jpg',
-        '/static/gf4.jpg',
-        '/static/gf5.jpg',
-        '/static/gf6.jpg',
-        '/static/gf7.jpg',
-        '/static/gf8.jpg',
-        '/static/gf9.jpg',
-        '/static/gf10.jpg'
+        '/static/images/her1.jpg',
+        '/static/images/her2.jpg',
+        '/static/images/her3.jpg',
+        '/static/images/her4.jpg',
+        '/static/images/her5.jpg',
+        '/static/images/her6.jpg',
+        '/static/images/her7.jpg',
+        '/static/images/her8.jpg',
+        '/static/images/her9.jpg',
+        '/static/images/her10.jpg'
     ];
 
     let current = 0;
