@@ -11,6 +11,7 @@ body {
     text-align: center;
     overflow-x: hidden;
 }
+
 #title {
     font-size: 100px;
     font-weight: bold;
@@ -73,11 +74,18 @@ body {
 }
 
 @keyframes float {
-    0% { transform: translateY(100vh); opacity: 1; }
-    100% { transform: translateY(-10vh); opacity: 0; }
+    0% {
+        transform: translateY(100vh);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10vh);
+        opacity: 0;
+    }
 }
 
-#music-btn, #surprise-btn {
+#music-btn,
+#surprise-btn {
     position: fixed;
     bottom: 30px;
     width: 70px;
@@ -115,26 +123,33 @@ body {
     transform: scale(1.1);
 }
 
+/* Responsive design for mobile devices */
 @media (max-width: 768px) {
     body {
-        background-size: cover; /* On mobile, use cover instead of 100% auto */
+        background-size: cover;
         background-position: center center;
+        background-attachment: scroll;
     }
-}
 
-    #search-input, #search-results {
+    #title {
+        font-size: 60px;
+    }
+
+    #search-input,
+    #search-results {
         width: 80%;
     }
 
-    #music-btn, #surprise-btn {
+    #music-btn,
+    #surprise-btn {
         font-size: 16px;
         width: 60px;
         height: 60px;
     }
 }
 
+/* Optional: tweaks for dark mode */
 @media (prefers-color-scheme: dark) {
-    /* Only tweaks for dark mode if needed, background stays same */
     #search-input {
         border: 2px solid pink;
         background: rgba(255, 255, 255, 0.2);
