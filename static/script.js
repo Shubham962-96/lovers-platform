@@ -1,3 +1,4 @@
+
 // Floating Hearts Animation
 function createHeart() {
     const heart = document.createElement("div");
@@ -64,12 +65,12 @@ document.getElementById("search-input").addEventListener("keyup", function () {
     }
 });
 
-// Change Tab Color when Switching Tabs
+// Change Tab Color and Title when Switching Tabs
 document.addEventListener("visibilitychange", function () {
     if (document.hidden) {
-        document.querySelector("link[rel='icon']").href = "{{ url_for('static', filename='heart-icon.png') }}";
-        document.title = "Come Back, Love! 💔";
+        document.querySelector("link[rel='icon']").href = "/static/heart-icon.png";
+        document.title = "Lovers Platform❤️❤️";
     } else {
-        document.title = "Shubham & Rajosmita ❤️";
+        document.title = "Lovers Platform❤️❤️";
     }
 });
