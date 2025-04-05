@@ -55,13 +55,11 @@ document.addEventListener('DOMContentLoaded', () => {
                             color: white;
                             text-shadow: 1px 1px 4px #ff1493;
                         }
-
                         @keyframes romanticBackground {
                             0% {background-position: 0% 50%;}
                             50% {background-position: 100% 50%;}
                             100% {background-position: 0% 50%;}
                         }
-
                         img {
                             width: 80%;
                             max-height: 80%;
@@ -70,7 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
                             cursor: pointer;
                             margin-bottom: 20px;
                         }
-
                         button {
                             padding: 12px 24px;
                             font-size: 18px;
@@ -81,7 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
                             cursor: pointer;
                             box-shadow: 0 0 10px rgba(255, 105, 180, 0.7);
                         }
-
                         button:hover {
                             background-color: #ff85c1;
                         }
@@ -114,7 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Love-themed fake search
     const searchInput = document.getElementById('search-input');
     const resultsBox = document.getElementById('search-results');
     const loveTopics = [
@@ -134,7 +129,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 resultsBox.style.display = 'none';
                 return;
             }
-
             const filtered = loveTopics.filter(item => item.toLowerCase().includes(query));
             resultsBox.innerHTML = filtered.map(item => `<div style="padding: 10px; cursor: pointer;">${item}</div>`).join('');
             resultsBox.style.display = filtered.length ? 'block' : 'none';
