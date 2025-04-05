@@ -1,5 +1,8 @@
 body {
-    background: url("/static/background.jpg") no-repeat center center fixed;
+    background-image: url("/static/background.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
     background-size: cover;
     text-align: center;
     font-family: Arial, sans-serif;
@@ -52,7 +55,6 @@ body {
     z-index: 5;
 }
 
-/* FLOATING HEARTS - FIXED */
 #hearts-container {
     position: fixed;
     top: 0;
@@ -60,7 +62,7 @@ body {
     width: 100vw;
     height: 100vh;
     z-index: 0;
-    pointer-events: none; /* KEY: allows clicks through hearts */
+    pointer-events: none;
     overflow: hidden;
 }
 
@@ -76,25 +78,27 @@ body {
     100% { transform: translateY(-10vh); opacity: 0; }
 }
 
-/* MUSIC BUTTON */
-#music-btn {
+#music-btn, #surprise-btn {
     position: fixed;
     bottom: 30px;
-    left: 30px;
     width: 70px;
     height: 70px;
-    background-color: #ff69b4;
-    color: white;
     border: none;
     border-radius: 50%;
     font-size: 30px;
     cursor: pointer;
+    color: white;
     z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
+}
+
+#music-btn {
+    left: 30px;
+    background-color: #ff69b4;
 }
 
 #music-btn:hover {
@@ -102,25 +106,9 @@ body {
     transform: scale(1.1);
 }
 
-/* SURPRISE BUTTON */
 #surprise-btn {
-    position: fixed;
-    bottom: 30px;
     right: 30px;
-    width: 90px;
-    height: 90px;
     background-color: #ff1493;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    font-size: 26px;
-    cursor: pointer;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
 }
 
 #surprise-btn:hover {
@@ -133,26 +121,19 @@ body {
         font-size: 60px;
     }
 
-    #search-input {
-        width: 80%;
-        font-size: 18px;
-    }
-
-    #search-results {
+    #search-input, #search-results {
         width: 80%;
     }
 
     #music-btn, #surprise-btn {
         font-size: 16px;
-        padding: 10px 20px;
+        width: 60px;
+        height: 60px;
     }
 }
 
 @media (prefers-color-scheme: dark) {
-    body {
-        background-color: #ff6b81;
-    }
-
+    /* Only tweaks for dark mode if needed, background stays same */
     #search-input {
         border: 2px solid pink;
         background: rgba(255, 255, 255, 0.2);
