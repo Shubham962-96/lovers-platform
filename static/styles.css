@@ -7,6 +7,7 @@ body {
     color: white;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 /* Title */
@@ -22,6 +23,8 @@ body {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    flex-direction: column;
+    align-items: center;
 }
 
 #search-input {
@@ -34,12 +37,13 @@ body {
     text-align: center;
     background: rgba(255, 255, 255, 0.3);
     color: white;
+    margin-bottom: 10px;
 }
 
 #search-results {
     position: absolute;
     width: 400px;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
     display: none;
     text-align: left;
@@ -48,6 +52,7 @@ body {
     font-size: 18px;
     color: black;
     margin-top: 5px;
+    z-index: 5;
 }
 
 /* Carousel */
@@ -63,7 +68,7 @@ body {
     margin: 10px;
     border-radius: 15px;
     display: inline-block;
-    box-shadow: 0 0 10px rgba(255, 105, 180, 0.8);
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.8);
     transition: transform 0.3s;
 }
 
@@ -80,7 +85,7 @@ body {
     left: 0;
     pointer-events: none;
     overflow: hidden;
-    z-index: 0;
+    z-index: 1;
 }
 
 .heart {
@@ -91,8 +96,14 @@ body {
 }
 
 @keyframes float {
-    0% { transform: translateY(100vh); opacity: 1; }
-    100% { transform: translateY(-10vh); opacity: 0; }
+    0% {
+        transform: translateY(100vh);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10vh);
+        opacity: 0;
+    }
 }
 
 /* Buttons */
@@ -104,7 +115,7 @@ body {
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    z-index: 2;
+    z-index: 10;
     box-shadow: 0 0 10px rgba(255, 105, 180, 0.7);
     transition: all 0.3s ease;
 }
@@ -130,9 +141,44 @@ body {
     box-shadow: 0 0 15px pink;
 }
 
+/* Responsive Text Size */
+@media (max-width: 768px) {
+    #title {
+        font-size: 60px;
+    }
+
+    #search-input {
+        width: 80%;
+        font-size: 18px;
+    }
+
+    #search-results {
+        width: 80%;
+    }
+
+    .carousel-image {
+        width: 250px;
+    }
+
+    #music-btn, #surprise-btn {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
+
 /* Dark Mode Theme */
 @media (prefers-color-scheme: dark) {
     body {
         background-color: #ff6b81;
+    }
+
+    #search-input {
+        border: 2px solid pink;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+    }
+
+    #search-results {
+        background: rgba(255, 255, 255, 0.95);
     }
 }
