@@ -1,14 +1,16 @@
 body {
     background-image: url("/static/background.jpg");
     background-repeat: no-repeat;
-    background-position: center top;
+    background-position: center center;
     background-attachment: fixed;
-    background-size: 100% auto;
-    /* Add a fallback color just in case */
-    background-color: black;
-    ...
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
 }
-
 #title {
     font-size: 100px;
     font-weight: bold;
