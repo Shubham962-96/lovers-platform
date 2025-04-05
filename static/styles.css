@@ -114,9 +114,11 @@ body {
 }
 
 @media (max-width: 768px) {
-    #title {
-        font-size: 60px;
+    body {
+        background-size: cover; /* On mobile, use cover instead of 100% auto */
+        background-position: center center;
     }
+}
 
     #search-input, #search-results {
         width: 80%;
